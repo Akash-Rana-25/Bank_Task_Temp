@@ -3,6 +3,7 @@ using BankManagment_Infrastructure.Context;
 using BankManagment_Infrastructure.Repository;
 using BankManagment_Infrastructure.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
+using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
         );
+
+builder.Services.AddScoped<IAccountTypeService, AccountTypeService>();
+builder.Services.AddScoped<IPaymentMethodService, PaymentMethodService>();
+builder.Services.AddScoped<IBankTransactionService, BankTransactionService>();
+builder.Services.AddScoped<IBankAccountService, BankAccountService>();
+
 
 builder.Services.AddScoped<IRepository<BankAccount>, Repository<BankAccount>>();
 builder.Services.AddScoped<IRepository<BankTransaction>, Repository<BankTransaction>>();
