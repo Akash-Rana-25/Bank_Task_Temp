@@ -13,9 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-        );
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlServerOptionsAction: sqlOptions =>
+        {
+            sqlOptions.MigrationsAssembly("BankManagment_Migration");
+        });
+});
 
 builder.Services.AddScoped<IAccountTypeService, AccountTypeService>();
 builder.Services.AddScoped<IPaymentMethodService, PaymentMethodService>();
@@ -27,6 +33,7 @@ builder.Services.AddScoped<IRepository<BankAccount>, Repository<BankAccount>>();
 builder.Services.AddScoped<IRepository<BankTransaction>, Repository<BankTransaction>>();
 builder.Services.AddScoped<IRepository<AccountType>, Repository<AccountType>>();
 builder.Services.AddScoped<IRepository<PaymentMethod>, Repository<PaymentMethod>>();
+builder.Services.AddScoped<IRepository<BankAccountPosting>, Repository<BankAccountPosting>>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 

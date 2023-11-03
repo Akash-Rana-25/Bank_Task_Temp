@@ -21,11 +21,13 @@ namespace BankManagment_Infrastructure.Seed
 
         public void Configure(EntityTypeBuilder<BankAccount> builder)
         {
-            Guid firstAccount = Guid.NewGuid();
             var numberOfBankAccountRecords = _configuration["AppSettings:NumberOfBankAccountRecords"];
+
 
             if (int.TryParse(numberOfBankAccountRecords, out int numberOfBankAccountRecordsInt))
             {
+                var accountTypeIds = SharedData.AccountTypeIds;
+                var random = new Random();
                 var bankAccounts = Enumerable.Range(0, numberOfBankAccountRecordsInt)
                     .Select(i => new BankAccount
                     {
@@ -34,15 +36,19 @@ namespace BankManagment_Infrastructure.Seed
                         LastName = "Rana",
                         AccountNumber = GenerateRandomAccountNumber(),
                         OpeningDate = DateTime.Now.AddDays(-i),
-                        AccountTypeId = firstAccount,
+                        AccountTypeId = GetRandomAccountTypeId(accountTypeIds, random),
                         TotalBalance = 1000
                     })
                     .ToArray();
 
                 builder.HasData(bankAccounts);
+                SharedData.BankAccountIds = bankAccounts.Select(b => b.Id).ToList();
             }
         }
-
+        private Guid GetRandomAccountTypeId(List<Guid> accountTypeIds, Random random)
+        {
+            return accountTypeIds[random.Next(accountTypeIds.Count)];
+        }
         private string GenerateRandomAccountNumber()
         {
             var random = new Random();

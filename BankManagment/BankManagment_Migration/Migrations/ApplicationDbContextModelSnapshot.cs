@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BankManagment_Infrastructure.Migrations
+namespace BankManagment_Migration.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -39,12 +39,12 @@ namespace BankManagment_Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8627701d-72fe-4ae4-b14a-b8a79a6b5979"),
+                            Id = new Guid("507cbf03-829b-488b-97b1-f237ea31a43f"),
                             Name = "Liability"
                         },
                         new
                         {
-                            Id = new Guid("13f7a5d2-7281-49af-a8c0-ac48d578cdb9"),
+                            Id = new Guid("79605657-382b-4be2-9d70-687d9ab23123"),
                             Name = "Asset"
                         });
                 });
@@ -91,52 +91,52 @@ namespace BankManagment_Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("c65b3dea-b80e-407c-b2f5-4afea82fe21d"),
-                            AccountNumber = "15176549",
-                            AccountTypeId = new Guid("7d9fc653-a3b3-46c6-893b-e95563a15e88"),
+                            Id = new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"),
+                            AccountNumber = "98151379",
+                            AccountTypeId = new Guid("79605657-382b-4be2-9d70-687d9ab23123"),
                             FirstName = "Akash",
                             LastName = "Rana",
-                            OpeningDate = new DateTime(2023, 8, 24, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1539),
+                            OpeningDate = new DateTime(2023, 11, 3, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6445),
                             TotalBalance = 1000m
                         },
                         new
                         {
-                            Id = new Guid("edd6b8ee-17c3-422e-a514-3efb6228ff54"),
-                            AccountNumber = "53179841",
-                            AccountTypeId = new Guid("7d9fc653-a3b3-46c6-893b-e95563a15e88"),
+                            Id = new Guid("7027972d-4e89-4feb-8d4e-56b24dce32e2"),
+                            AccountNumber = "20011388",
+                            AccountTypeId = new Guid("507cbf03-829b-488b-97b1-f237ea31a43f"),
                             FirstName = "Akash",
                             LastName = "Rana",
-                            OpeningDate = new DateTime(2023, 8, 23, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1559),
+                            OpeningDate = new DateTime(2023, 11, 2, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6473),
                             TotalBalance = 1000m
                         },
                         new
                         {
-                            Id = new Guid("d5ed1e68-552a-4020-81d8-be2fc09b75e4"),
-                            AccountNumber = "51588042",
-                            AccountTypeId = new Guid("7d9fc653-a3b3-46c6-893b-e95563a15e88"),
+                            Id = new Guid("e6cc0556-98fb-460e-a11d-0ec930fa5835"),
+                            AccountNumber = "81906010",
+                            AccountTypeId = new Guid("507cbf03-829b-488b-97b1-f237ea31a43f"),
                             FirstName = "Akash",
                             LastName = "Rana",
-                            OpeningDate = new DateTime(2023, 8, 22, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1563),
+                            OpeningDate = new DateTime(2023, 11, 1, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6477),
                             TotalBalance = 1000m
                         },
                         new
                         {
-                            Id = new Guid("828080d8-801b-4783-9966-929ebdee22d5"),
-                            AccountNumber = "96290323",
-                            AccountTypeId = new Guid("7d9fc653-a3b3-46c6-893b-e95563a15e88"),
+                            Id = new Guid("010315fd-a567-4abd-a4b0-f73431454f4f"),
+                            AccountNumber = "93300357",
+                            AccountTypeId = new Guid("79605657-382b-4be2-9d70-687d9ab23123"),
                             FirstName = "Akash",
                             LastName = "Rana",
-                            OpeningDate = new DateTime(2023, 8, 21, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1570),
+                            OpeningDate = new DateTime(2023, 10, 31, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6481),
                             TotalBalance = 1000m
                         },
                         new
                         {
-                            Id = new Guid("f5dcc32f-ae0f-4657-9044-5fa7d2ecb4bb"),
-                            AccountNumber = "98674631",
-                            AccountTypeId = new Guid("7d9fc653-a3b3-46c6-893b-e95563a15e88"),
+                            Id = new Guid("5d096aa8-d3f8-40a0-9fdf-9bfc0be93d5f"),
+                            AccountNumber = "51863866",
+                            AccountTypeId = new Guid("79605657-382b-4be2-9d70-687d9ab23123"),
                             FirstName = "Akash",
                             LastName = "Rana",
-                            OpeningDate = new DateTime(2023, 8, 20, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1573),
+                            OpeningDate = new DateTime(2023, 10, 30, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6488),
                             TotalBalance = 1000m
                         });
                 });
@@ -187,60 +187,60 @@ namespace BankManagment_Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("2e0deea8-5154-45fe-945c-a46899a6eea0"),
-                            Amount = 279.671857525747000m,
-                            BankAccountID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            Category = "Bank Interest",
-                            PaymentMethodID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            TransactionDate = new DateTime(2023, 8, 24, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1697),
+                            Id = new Guid("3918570a-fd49-42e7-a754-426de2a76afc"),
+                            Amount = 843.717140581565000m,
+                            BankAccountID = new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"),
+                            Category = "Bank Charges",
+                            PaymentMethodID = new Guid("480ee408-ddcb-4c46-87a3-be057376723e"),
+                            TransactionDate = new DateTime(2023, 11, 3, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6665),
                             TransactionPersonFirstName = "Akash",
                             TransactionPersonLastName = "Rana",
                             TransactionType = "Credit"
                         },
                         new
                         {
-                            Id = new Guid("87f41ddc-1e35-4d74-929e-459e5f349d0c"),
-                            Amount = 394.888107542132000m,
-                            BankAccountID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            Category = "Bank Interest",
-                            PaymentMethodID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            TransactionDate = new DateTime(2023, 8, 23, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1701),
+                            Id = new Guid("9482873a-02ee-4407-b3e6-e71e916c712a"),
+                            Amount = 433.23440167249000m,
+                            BankAccountID = new Guid("5d096aa8-d3f8-40a0-9fdf-9bfc0be93d5f"),
+                            Category = "Opening Balance",
+                            PaymentMethodID = new Guid("0bf38f97-3634-424a-ada8-5e94acbb27bc"),
+                            TransactionDate = new DateTime(2023, 11, 2, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6671),
                             TransactionPersonFirstName = "Akash",
                             TransactionPersonLastName = "Rana",
                             TransactionType = "Debit"
                         },
                         new
                         {
-                            Id = new Guid("10fe9da3-466f-45b1-ae5a-1514a2feaeb4"),
-                            Amount = 973.793510990241000m,
-                            BankAccountID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            Category = "Opening Balance",
-                            PaymentMethodID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            TransactionDate = new DateTime(2023, 8, 22, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1706),
+                            Id = new Guid("7a1d7970-2cb4-4e41-81fe-d359df2b4c02"),
+                            Amount = 34.8647367220243000m,
+                            BankAccountID = new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"),
+                            Category = "Bank Interest",
+                            PaymentMethodID = new Guid("cf9b49e9-6372-4989-a732-bfa6ac5a3c03"),
+                            TransactionDate = new DateTime(2023, 11, 1, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6674),
                             TransactionPersonFirstName = "Akash",
                             TransactionPersonLastName = "Rana",
                             TransactionType = "Credit"
                         },
                         new
                         {
-                            Id = new Guid("06504d5d-b272-449a-bc4d-439cf08d2856"),
-                            Amount = 754.592598353568000m,
-                            BankAccountID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            Category = "Opening Balance",
-                            PaymentMethodID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            TransactionDate = new DateTime(2023, 8, 21, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1767),
-                            TransactionPersonFirstName = "Akash",
-                            TransactionPersonLastName = "Rana",
-                            TransactionType = "Debit"
-                        },
-                        new
-                        {
-                            Id = new Guid("08d944eb-1662-4c69-8ec8-764ceee7f7e2"),
-                            Amount = 129.784390990282000m,
-                            BankAccountID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
+                            Id = new Guid("b3283467-4c39-4b6c-af4f-f0aacbfef3d6"),
+                            Amount = 841.705131144781000m,
+                            BankAccountID = new Guid("010315fd-a567-4abd-a4b0-f73431454f4f"),
                             Category = "Normal Transactions",
-                            PaymentMethodID = new Guid("adcfa62b-9c94-434f-bceb-d3d629eae6fb"),
-                            TransactionDate = new DateTime(2023, 8, 20, 0, 28, 9, 673, DateTimeKind.Local).AddTicks(1771),
+                            PaymentMethodID = new Guid("f4cffe7d-869c-44c9-86c5-0aec1ad30ef1"),
+                            TransactionDate = new DateTime(2023, 10, 31, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6681),
+                            TransactionPersonFirstName = "Akash",
+                            TransactionPersonLastName = "Rana",
+                            TransactionType = "Debit"
+                        },
+                        new
+                        {
+                            Id = new Guid("43606249-3139-45d0-b3d0-3f48dc0cb514"),
+                            Amount = 921.384731920803000m,
+                            BankAccountID = new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"),
+                            Category = "Bank Interest",
+                            PaymentMethodID = new Guid("f4cffe7d-869c-44c9-86c5-0aec1ad30ef1"),
+                            TransactionDate = new DateTime(2023, 10, 30, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6684),
                             TransactionPersonFirstName = "Akash",
                             TransactionPersonLastName = "Rana",
                             TransactionType = "Credit"
@@ -264,27 +264,27 @@ namespace BankManagment_Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0262c056-69b3-4a98-8806-5f7e22cb917d"),
+                            Id = new Guid("480ee408-ddcb-4c46-87a3-be057376723e"),
                             Name = "Cash"
                         },
                         new
                         {
-                            Id = new Guid("89f8fab8-358f-4d24-956f-fdf9dba1c4da"),
+                            Id = new Guid("0bf38f97-3634-424a-ada8-5e94acbb27bc"),
                             Name = "Cheque"
                         },
                         new
                         {
-                            Id = new Guid("9bbfba47-bdc0-44c4-aacb-08e70aa4898f"),
+                            Id = new Guid("cf9b49e9-6372-4989-a732-bfa6ac5a3c03"),
                             Name = "NEFT"
                         },
                         new
                         {
-                            Id = new Guid("fb2f3d21-b413-4df2-9160-b829158d9422"),
+                            Id = new Guid("933e1a20-e086-4c4b-910f-a8fc17f6751b"),
                             Name = "RTGS"
                         },
                         new
                         {
-                            Id = new Guid("5ad96931-5355-470b-aa0b-089e3402235a"),
+                            Id = new Guid("f4cffe7d-869c-44c9-86c5-0aec1ad30ef1"),
                             Name = "Other"
                         });
                 });

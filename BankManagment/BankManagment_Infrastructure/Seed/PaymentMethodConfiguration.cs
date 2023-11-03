@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace BankManagment_Infrastructure.Seed
 {
@@ -13,13 +14,22 @@ namespace BankManagment_Infrastructure.Seed
     {
         public void Configure(EntityTypeBuilder<PaymentMethod> builder)
         {
+            var cashId = Guid.NewGuid();
+            var chequeId = Guid.NewGuid();
+            var neftId = Guid.NewGuid();
+            var rtgsId = Guid.NewGuid();
+            var otherId = Guid.NewGuid();
+
             builder.HasData(
-                new PaymentMethod { Id = Guid.NewGuid(), Name = "Cash" },
-                new PaymentMethod { Id = Guid.NewGuid(), Name = "Cheque" },
-                new PaymentMethod { Id = Guid.NewGuid(), Name = "NEFT" },
-                new PaymentMethod { Id = Guid.NewGuid(), Name = "RTGS" },
-                new PaymentMethod { Id = Guid.NewGuid(), Name = "Other" }
+                new PaymentMethod { Id = cashId, Name = "Cash" },
+                new PaymentMethod { Id = chequeId, Name = "Cheque" },
+                new PaymentMethod { Id = neftId, Name = "NEFT" },
+                new PaymentMethod { Id = rtgsId, Name = "RTGS" },
+                new PaymentMethod { Id = otherId, Name = "Other" }
             );
+
+            SharedData.PaymentMethodIds = new List<Guid> { cashId, chequeId, neftId, rtgsId, otherId };
         }
+
     }
 }
