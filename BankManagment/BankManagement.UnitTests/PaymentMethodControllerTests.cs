@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
+using BankManagment_DTO;
+using BankManagment_Domain.Entity;
+using Microsoft.AspNetCore.Mvc;
+using Moq;
+using Services;
+using Xunit;
+
+namespace YourProject.Tests
+{
+    public class PaymentMethodControllerTests
+    {
+        [Fact]
+        public async Task GetPaymentMethods_ReturnsOkResultWithPaymentMethods()
+        {
+            // Arrange
+            var mockPaymentMethodService = new Mock<IPaymentMethodService>();
+            var mockMapper = new Mock<IMapper>();
+            var controller = new PaymentMethodController(mockPaymentMethodService.Object, mockMapper.Object);
+
+            var paymentMethods = new List<PaymentMethod> { new PaymentMethod { Id = Guid.NewGuid(), Name = "Method 1" } };
+            var paymentMethodDTOs = new List<PaymentMethodDTO> { new PaymentMethodDTO { Id = Guid.NewGuid(), Name = "Method 1" } };
+
+            mockPaymentMethodService.Setup(service => service.GetAllPaymentMethodsAsync()).ReturnsAsync(paymentMethods);
+            mockMapper.Setup(mapper => mapper.Map<List<PaymentMethodDTO>>(paymentMethods)).Returns(paymentMethodDTOs);
+
+            // Act
+            var result = await controller.GetPaymentMethods() as ObjectResult;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(200, result.StatusCode);
+            Assert.Same(paymentMethodDTOs, result.Value);
+        }
+
+        [Fact]
+        public async Task UpdatePaymentMethod_ReturnsNoContentWhenModelStateIsValid()
+        {
+            // Arrange
+            var paymentMethodId = Guid.NewGuid();
+            var mockPaymentMethodService = new Mock<IPaymentMethodService>();
+            var mockMapper = new Mock<IMapper>();
+            var controller = new PaymentMethodController(mockPaymentMethodService.Object, mockMapper.Object);
+
+            var updatedPaymentMethodDTO = new PaymentMethodDTO { Id = paymentMethodId, Name = "Updated Method" };
+            var updatedPaymentMethod = new PaymentMethod { Id = paymentMethodId, Name = "Updated Method" };
+
+            mockMapper.Setup(mapper => mapper.Map<PaymentMethod>(updatedPaymentMethodDTO)).Returns(updatedPaymentMethod);
+            mockPaymentMethodService.Setup(service => service.UpdatePaymentMethodAsync(paymentMethodId, updatedPaymentMethod)).Returns(Task.CompletedTask);
+            mockPaymentMethodService.Setup(service => service.SaveChangesAsync()).Returns(Task.CompletedTask);
+
+            // Act
+            var result = await controller.UpdatePaymentMethod(paymentMethodId, updatedPaymentMethodDTO) as NoContentResult;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(204, result.StatusCode);
+        }
+
+        [Fact]
+        public async Task DeletePaymentMethod_ReturnsNoContent()
+        {
+            // Arrange
+            var paymentMethodId = Guid.NewGuid();
+            var mockPaymentMethodService = new Mock<IPaymentMethodService>();
+            var controller = new PaymentMethodController(mockPaymentMethodService.Object, null);
+
+            mockPaymentMethodService.Setup(service => service.DeletePaymentMethodAsync(paymentMethodId)).Returns(Task.CompletedTask);
+            mockPaymentMethodService.Setup(service => service.SaveChangesAsync()).Returns(Task.CompletedTask);
+
+            // Act
+            var result = await controller.DeletePaymentMethod(paymentMethodId) as NoContentResult;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal(204, result.StatusCode);
+        }
+
+        [Fact]
+        public async Task CreatePaymentMethod_ReturnsBadRequestWhenModelStateIsInvalid()
+        {
+            // Arrange
+            var controller = new PaymentMethodController(null, null);
+            controller.ModelState.AddModelError("Name", "Name is required");
+
+            // Act
+            var result = await controller.CreatePaymentMethod(null);
+
+            // Assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdatePaymentMethod_ReturnsBadRequestWhenModelStateIsInvalid()
+        {
+            // Arrange
+            var controller = new PaymentMethodController(null, null);
+            controller.ModelState.AddModelError("Name", "Name is required");
+
+            // Act
+            var result = await controller.UpdatePaymentMethod(Guid.NewGuid(), null);
+
+            // Assert
+            Assert.IsType<BadRequestResult>(result);
+        }
+    }
+}

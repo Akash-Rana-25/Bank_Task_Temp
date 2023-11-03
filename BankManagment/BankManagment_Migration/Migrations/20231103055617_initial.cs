@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BankManagment_Infrastructure.Migrations
+namespace BankManagment_Migration.Migrations
 {
-    public partial class one : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,32 +95,8 @@ namespace BankManagment_Infrastructure.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("2ef49c40-ce42-47a8-a983-2535003a9023"), "Asset" },
-                    { new Guid("6275087a-891f-4d17-bab3-556ca853c7d2"), "Liability" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "BankAccounts",
-                columns: new[] { "Id", "AccountNumber", "AccountTypeId", "ClosingDate", "FirstName", "LastName", "MiddleName", "OpeningDate", "TotalBalance" },
-                values: new object[,]
-                {
-                    { new Guid("2b0af3c3-10b6-46bc-8291-4fef421c4ba1"), "28950592", new Guid("df5f2fd9-fb28-4ab0-9582-519ef71566c3"), null, "Akash", "Rana", null, new DateTime(2023, 8, 22, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5678), 1000m },
-                    { new Guid("4d1ba01b-e860-4f9c-ab1e-83584e144124"), "80349014", new Guid("df5f2fd9-fb28-4ab0-9582-519ef71566c3"), null, "Akash", "Rana", null, new DateTime(2023, 8, 24, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5650), 1000m },
-                    { new Guid("4deea147-0299-4caa-81be-a2260c74ee38"), "75104870", new Guid("df5f2fd9-fb28-4ab0-9582-519ef71566c3"), null, "Akash", "Rana", null, new DateTime(2023, 8, 20, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5689), 1000m },
-                    { new Guid("51536717-9ccd-4a98-a0b2-e5281123c8a1"), "47227226", new Guid("df5f2fd9-fb28-4ab0-9582-519ef71566c3"), null, "Akash", "Rana", null, new DateTime(2023, 8, 21, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5683), 1000m },
-                    { new Guid("86ea06a2-d037-4fff-ba01-b795bd72d214"), "53999320", new Guid("df5f2fd9-fb28-4ab0-9582-519ef71566c3"), null, "Akash", "Rana", null, new DateTime(2023, 8, 23, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5673), 1000m }
-                });
-
-            migrationBuilder.InsertData(
-                table: "BankTransactions",
-                columns: new[] { "Id", "Amount", "BankAccountID", "Category", "PaymentMethodID", "TransactionDate", "TransactionPersonFirstName", "TransactionPersonLastName", "TransactionPersonMiddleName", "TransactionType" },
-                values: new object[,]
-                {
-                    { new Guid("6a0d5711-5c27-4a71-8ecb-6db310393bf5"), 280.375245429027000m, new Guid("00000000-0000-0000-0000-000000000000"), "Normal Transactions", new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2023, 8, 20, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5840), "Akash", "Rana", null, "Credit" },
-                    { new Guid("7e047a47-1e7f-4284-9d02-93c76e249b05"), 948.896981609242000m, new Guid("00000000-0000-0000-0000-000000000000"), "Normal Transactions", new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2023, 8, 24, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5823), "Akash", "Rana", null, "Credit" },
-                    { new Guid("b86bf147-9f53-401a-adc0-5c4a674e5e20"), 383.865094655055000m, new Guid("00000000-0000-0000-0000-000000000000"), "Bank Interest", new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2023, 8, 22, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5831), "Akash", "Rana", null, "Credit" },
-                    { new Guid("c573bde5-752a-4b7f-8080-1fa1f37e8fa0"), 501.880672867526000m, new Guid("00000000-0000-0000-0000-000000000000"), "Bank Charges", new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2023, 8, 21, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5837), "Akash", "Rana", null, "Debit" },
-                    { new Guid("d364d88e-1f53-48b1-b895-035a5570be7d"), 231.35737198547000m, new Guid("00000000-0000-0000-0000-000000000000"), "Bank Charges", new Guid("00000000-0000-0000-0000-000000000000"), new DateTime(2023, 8, 23, 0, 19, 47, 980, DateTimeKind.Local).AddTicks(5828), "Akash", "Rana", null, "Debit" }
+                    { new Guid("507cbf03-829b-488b-97b1-f237ea31a43f"), "Liability" },
+                    { new Guid("79605657-382b-4be2-9d70-687d9ab23123"), "Asset" }
                 });
 
             migrationBuilder.InsertData(
@@ -128,11 +104,35 @@ namespace BankManagment_Infrastructure.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("2b0b7594-004c-46ec-a650-f8bacaf42f3a"), "Other" },
-                    { new Guid("3f65991b-f79d-4040-a87f-22577f58db32"), "Cheque" },
-                    { new Guid("7d86873e-dfb0-432e-8042-7c73b0a3ceb4"), "RTGS" },
-                    { new Guid("94ff73c0-e71e-4bb1-9c24-4b9532109987"), "NEFT" },
-                    { new Guid("d201d6f8-2ba5-4807-b8a8-c50b2e08c45c"), "Cash" }
+                    { new Guid("0bf38f97-3634-424a-ada8-5e94acbb27bc"), "Cheque" },
+                    { new Guid("480ee408-ddcb-4c46-87a3-be057376723e"), "Cash" },
+                    { new Guid("933e1a20-e086-4c4b-910f-a8fc17f6751b"), "RTGS" },
+                    { new Guid("cf9b49e9-6372-4989-a732-bfa6ac5a3c03"), "NEFT" },
+                    { new Guid("f4cffe7d-869c-44c9-86c5-0aec1ad30ef1"), "Other" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "BankAccounts",
+                columns: new[] { "Id", "AccountNumber", "AccountTypeId", "ClosingDate", "FirstName", "LastName", "MiddleName", "OpeningDate", "TotalBalance" },
+                values: new object[,]
+                {
+                    { new Guid("010315fd-a567-4abd-a4b0-f73431454f4f"), "93300357", new Guid("79605657-382b-4be2-9d70-687d9ab23123"), null, "Akash", "Rana", null, new DateTime(2023, 10, 31, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6481), 1000m },
+                    { new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"), "98151379", new Guid("79605657-382b-4be2-9d70-687d9ab23123"), null, "Akash", "Rana", null, new DateTime(2023, 11, 3, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6445), 1000m },
+                    { new Guid("5d096aa8-d3f8-40a0-9fdf-9bfc0be93d5f"), "51863866", new Guid("79605657-382b-4be2-9d70-687d9ab23123"), null, "Akash", "Rana", null, new DateTime(2023, 10, 30, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6488), 1000m },
+                    { new Guid("7027972d-4e89-4feb-8d4e-56b24dce32e2"), "20011388", new Guid("507cbf03-829b-488b-97b1-f237ea31a43f"), null, "Akash", "Rana", null, new DateTime(2023, 11, 2, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6473), 1000m },
+                    { new Guid("e6cc0556-98fb-460e-a11d-0ec930fa5835"), "81906010", new Guid("507cbf03-829b-488b-97b1-f237ea31a43f"), null, "Akash", "Rana", null, new DateTime(2023, 11, 1, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6477), 1000m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "BankTransactions",
+                columns: new[] { "Id", "Amount", "BankAccountID", "Category", "PaymentMethodID", "TransactionDate", "TransactionPersonFirstName", "TransactionPersonLastName", "TransactionPersonMiddleName", "TransactionType" },
+                values: new object[,]
+                {
+                    { new Guid("3918570a-fd49-42e7-a754-426de2a76afc"), 843.717140581565000m, new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"), "Bank Charges", new Guid("480ee408-ddcb-4c46-87a3-be057376723e"), new DateTime(2023, 11, 3, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6665), "Akash", "Rana", null, "Credit" },
+                    { new Guid("43606249-3139-45d0-b3d0-3f48dc0cb514"), 921.384731920803000m, new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"), "Bank Interest", new Guid("f4cffe7d-869c-44c9-86c5-0aec1ad30ef1"), new DateTime(2023, 10, 30, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6684), "Akash", "Rana", null, "Credit" },
+                    { new Guid("7a1d7970-2cb4-4e41-81fe-d359df2b4c02"), 34.8647367220243000m, new Guid("1d94c74c-9794-40ca-8a43-6a465c6c16ff"), "Bank Interest", new Guid("cf9b49e9-6372-4989-a732-bfa6ac5a3c03"), new DateTime(2023, 11, 1, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6674), "Akash", "Rana", null, "Credit" },
+                    { new Guid("9482873a-02ee-4407-b3e6-e71e916c712a"), 433.23440167249000m, new Guid("5d096aa8-d3f8-40a0-9fdf-9bfc0be93d5f"), "Opening Balance", new Guid("0bf38f97-3634-424a-ada8-5e94acbb27bc"), new DateTime(2023, 11, 2, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6671), "Akash", "Rana", null, "Debit" },
+                    { new Guid("b3283467-4c39-4b6c-af4f-f0aacbfef3d6"), 841.705131144781000m, new Guid("010315fd-a567-4abd-a4b0-f73431454f4f"), "Normal Transactions", new Guid("f4cffe7d-869c-44c9-86c5-0aec1ad30ef1"), new DateTime(2023, 10, 31, 11, 26, 17, 605, DateTimeKind.Local).AddTicks(6681), "Akash", "Rana", null, "Debit" }
                 });
 
             migrationBuilder.CreateIndex(

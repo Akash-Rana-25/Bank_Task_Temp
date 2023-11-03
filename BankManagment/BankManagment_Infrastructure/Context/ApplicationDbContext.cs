@@ -1,6 +1,4 @@
-﻿
-
-using BankManagment_Domain.Entity;
+﻿using BankManagment_Domain.Entity;
 using BankManagment_Infrastructure.Seed;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +16,7 @@ namespace BankManagment_Infrastructure.Context
             _configuration = configuration;
         }
 
-        public DbSet<AccountType> AccountTypes { get; set; }
+            public DbSet<AccountType> AccountTypes { get; set; }
             public DbSet<PaymentMethod> PaymentMethods { get; set; }
             public DbSet<BankAccount> BankAccounts { get; set; }
             public DbSet<BankTransaction> BankTransactions { get; set; }
@@ -30,8 +28,7 @@ namespace BankManagment_Infrastructure.Context
                 modelBuilder.ApplyConfiguration(new AccountTypeConfiguration());
                 modelBuilder.ApplyConfiguration(new PaymentMethodConfiguration());
                 modelBuilder.ApplyConfiguration(new BankAccountConfiguration(_configuration));
-            //modelBuilder.ApplyConfiguration(new BankTransactionConfiguration(_configuration, this));
-            modelBuilder.ApplyConfiguration(new BankTransactionConfiguration(_configuration));
+                modelBuilder.ApplyConfiguration(new BankTransactionConfiguration(_configuration));
 
         }
     }
